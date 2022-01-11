@@ -1,0 +1,11 @@
+node_modules
+server/node_modules
+client/node_modules
+
+build
+server/build
+client/build
+coverage
+
+*.html
+DS_Stores

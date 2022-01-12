@@ -7,9 +7,9 @@
         "start": "node_modules/.bin/concurrently \"npm run server:watch\" \"npm run server:start\" ",
         "server:watch": "node_modules/.bin/tsc --project tsconfig.server.json -w",
         "server:start": "node_modules/.bin/nodemon server/build/index.js",
-        "lint:server": "node_modules/.bin/eslint -c .eslintrc.server.yml --ext .ts server --ignore-path .eslintignore.server.yml",
+        "lint:server": "node_modules/.bin/eslint -c .eslintrc.server.yml --ext .ts server --ignore-path .eslintignore.server.yml --fix",
         "prettier": "node_modules/.bin/prettier --write --ignore-unknown",
-        "prepare": "husky install"
+        "prepare": "node_modules/.bin/husky install"
     },
     "repository": {
         "type": "git",

@@ -3,5 +3,12 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "devDependencies": {}
+    "devDependencies": {},
+    "dependencies": {
+        "@mikro-orm/cli": "^4.5.10",
+        "@mikro-orm/core": "^4.5.10",
+        "@mikro-orm/migrations": "^4.5.10",
+        "@mikro-orm/postgresql": "^4.5.10",
+        "pg": "^8.7.1"
+    }
 }

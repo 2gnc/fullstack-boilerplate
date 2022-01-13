@@ -5,3 +5,4 @@
 
 На пре-коммит хуке срабатывает `prettier` и `eslint`
 ## TODO 
+- server automation insde server folder

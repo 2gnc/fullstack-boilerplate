@@ -2,13 +2,36 @@
     "name": "server",
     "version": "1.0.0",
     "main": "index.js",
+    "scripts": {
+        "start": "node_modules/.bin/nodemon ./build/index.js",
+        "watch": "node_modules/.bin/tsc --project configs/tsconfig.json -w",
+        "lint": "node_modules/.bin/eslint -c configs/.eslintrc.yml --ext .ts src --ignore-path configs/.eslintignore --fix",
+        "pretty": "node_modules/.bin/prettier --config configs/.prettierrc.yml  --write --ignore-unknown src/**.*"
+    },
     "license": "MIT",
-    "devDependencies": {},
+    "devDependencies": {
+        "@types/node": "17.0.8",
+        "@typescript-eslint/eslint-plugin": "5.9.1",
+        "@typescript-eslint/parser": "5.9.1",
+        "eslint": "8.6.0",
+        "eslint-config-airbnb-base": "15.0.0",
+        "eslint-plugin-import": "2.25.4",
+        "nodemon": "2.0.15",
+        "prettier": "2.5.1",
+        "typescript": "4.5.4"
+    },
     "dependencies": {
-        "@mikro-orm/cli": "^4.5.10",
-        "@mikro-orm/core": "^4.5.10",
-        "@mikro-orm/migrations": "^4.5.10",
-        "@mikro-orm/postgresql": "^4.5.10",
-        "pg": "^8.7.1"
+        "@mikro-orm/cli": "4.5.10",
+        "@mikro-orm/core": "4.5.10",
+        "@mikro-orm/migrations": "4.5.10",
+        "@mikro-orm/postgresql": "4.5.10",
+        "pg": "8.7.1"
+    },
+    "mikro-orm": {
+        "useTsNode": true,
+        "configPaths": [
+            "./src/db/mikro-orm.config.ts",
+            "./build/db/mikro-orm.config.js"
+        ]
     }
 }

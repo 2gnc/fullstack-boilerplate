@@ -1,0 +1,10 @@
+# Ignore artifacts:
+../node_modules
+../build
+../coverage
+
+*.html
+*.md
+*.json
+*.yml
+.*

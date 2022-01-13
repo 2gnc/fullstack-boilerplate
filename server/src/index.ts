@@ -1,16 +1,8 @@
 import { MikroORM } from '@mikro-orm/core';
-import { IS_PROD } from './constants';
 import { Example } from './entities/Example';
 
 async function main() {
-  const orm = await MikroORM.init({
-    dbName: 'mtrader01',
-    // user: '',
-    password: 'boolo4ka',
-    debug: !IS_PROD,
-    type: 'postgresql',
-    entities: [Example],
-  });
+  const orm = await MikroORM.init();
 
   const post = orm.em.create(Example, {
     createdAt: new Date(),

@@ -1,5 +1,5 @@
 {
-    "extends": "./tsconfig.json",
+    "extends": "../../tsconfig.json",
     "compilerOptions": {
         "target": "es2017",
         "module": "commonjs",
@@ -11,7 +11,7 @@
         ],
         "skipLibCheck": true,
         "sourceMap": true,
-        "outDir": "./server/build",
+        "outDir": "../build",
         "removeComments": true,
         "noImplicitAny": true,
         "strictNullChecks": true,
@@ -22,15 +22,12 @@
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
         "resolveJsonModule": true,
         "baseUrl": "."
     },
-    "exclude": ["./server/node_modules"],
+    "exclude": ["../node_modules"],
     "include": [
-        "./server/src/**/*"
+        "../src/**/*"
     ],
     "watchOptions": {
         // Use native file system events for files and directories
@@ -44,9 +41,8 @@
         // Finally, two additional settings for reducing the amount of possible
         // files to track  work from these directories
         "excludeDirectories": [
-            "node_modules",
-            "server/node_modules",
-            "_build"
+            "../node_modules",
+            "../build"
         ],
         "excludeFiles": []
       }

@@ -1,8 +1,12 @@
 # fullstack-boilerplate
 
 ## Development
-Для старта проекта в режиме разработки: `npm start`
+Start a project in development mode: `npm start`
 
-На пре-коммит хуке срабатывает `prettier` и `eslint`
+On pre-commit the automation fires `prettier` и `eslint` tasks. See `int-staged` section in `./package.json`
+
+## Server
+### Make a migration
+`cd server/db && npx mikro-orm migration:create -p migrations`
 ## TODO 
-- server automation insde server folder
+

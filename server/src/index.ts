@@ -1,8 +1,11 @@
 import { MikroORM } from '@mikro-orm/core';
 import express from 'express';
-// import { Example } from './entities/Example';
+import { ApolloServer } from 'apollo-server-express';
+import { buildSchema } from 'type-graphql';
 import mikroOrmPgConfig from '../mikro-orm.config';
 import { PORT } from './constants';
+import { HelloResolver } from './resolvers/hello';
+import { PostResolver } from './resolvers/post';
 
 function errorCallback(err: Error): void {
     console.error('Application start error ', err);
@@ -17,6 +20,18 @@ async function main() {
     await orm.getMigrator().up();
 
     const app = express();
+    const appoloServer = new ApolloServer({
+        schema: await buildSchema({
+            resolvers: [HelloResolver, PostResolver],
+            validate: false,
+        }),
+        context: () => ({
+            em: orm.em,
+        }),
+    });
+
+    await appoloServer.start();
+    appoloServer.applyMiddleware({ app });
 
     app.listen(PORT, listenCallback).addListener('error', errorCallback);
 }
@@ -24,6 +39,7 @@ async function main() {
 main().catch(console.error);
 
 /** Create record example */
+// import { Example } from './entities/Example';
 // const post = orm.em.create(Example, {
 //   createdAt: new Date(),
 //   title: 'Example3',

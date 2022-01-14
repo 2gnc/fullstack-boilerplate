@@ -5,7 +5,7 @@ import { MyContext } from '../../@types';
 @Resolver()
 export class PostResolver {
     @Query(() => [Example])
-    static examples(
+    examples(
         @Ctx() ctx: MyContext,
     ): Promise<Example[]> {
         return ctx.em.find(Example, {});

@@ -20,9 +20,7 @@
     },
     "homepage": "https://github.com/2gnc/fullstack-boilerplate#readme",
     "dependencies": {},
-    "devDependencies": {
-        "concurrently": "7.0.0"
-    },
+    "devDependencies": {},
     "lint-staged": {
         "*": [
             "make pretty-server",

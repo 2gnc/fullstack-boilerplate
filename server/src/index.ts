@@ -1,13 +1,24 @@
 import { MikroORM } from '@mikro-orm/core';
-import { Example } from './entities/Example';
+import express from 'express';
+// import { Example } from './entities/Example';
 import mikroOrmPgConfig from '../mikro-orm.config';
+import { PORT } from './constants';
+
+function errorCallback(err: Error): void {
+    console.error('Application start error ', err);
+}
+
+function listenCallback(): void {
+    console.info(`Application started on port ${PORT}`);
+}
 
 async function main() {
     const orm = await MikroORM.init(mikroOrmPgConfig);
     await orm.getMigrator().up();
 
-    const examples = await orm.em.find(Example, {});
-    console.log(examples);
+    const app = express();
+
+    app.listen(PORT, listenCallback).addListener('error', errorCallback);
 }
 
 main().catch(console.error);
@@ -19,3 +30,6 @@ main().catch(console.error);
 // });
 
 // await orm.em.persistAndFlush(post);
+
+/** Get records example */
+// const examples = await orm.em.find(Example, {});

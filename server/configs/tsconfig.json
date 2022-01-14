@@ -23,7 +23,12 @@
         "noFallthroughCasesInSwitch": true,
         "allowSyntheticDefaultImports": true,
         "resolveJsonModule": true,
-        "baseUrl": "."
+        "baseUrl": "./",
+        "paths": {
+            "*": [
+                "../../@types/*"
+            ]
+        }
     },
     "exclude": ["../node_modules", "../build"],
     "include": [

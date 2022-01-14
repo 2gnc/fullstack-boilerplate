@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "node_modules/.bin/concurrently \"make server\" ",
+        "start": "make server",
         "prettier": "node_modules/.bin/prettier --write --ignore-unknown",
         "prepare": "node_modules/.bin/husky install"
     },

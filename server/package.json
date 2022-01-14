@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "start": "node_modules/.bin/nodemon ./build/index.js",
+        "start": "node_modules/.bin/nodemon ./build/src/index.js",
         "watch": "node_modules/.bin/tsc --project configs/tsconfig.json -w",
-        "lint": "node_modules/.bin/eslint -c configs/.eslintrc.yml --ext .ts src --ignore-path configs/.eslintignore --fix",
+        "lint": "node_modules/.bin/eslint -c configs/.eslintrc.yml --ext .ts . --ignore-path configs/.eslintignore --fix",
         "pretty": "node_modules/.bin/prettier --config configs/.prettierrc.yml  --write --ignore-unknown src/**.*"
     },
     "license": "MIT",
@@ -13,6 +13,7 @@
         "@types/node": "17.0.8",
         "@typescript-eslint/eslint-plugin": "5.9.1",
         "@typescript-eslint/parser": "5.9.1",
+        "concurrently": "7.0.0",
         "eslint": "8.6.0",
         "eslint-config-airbnb-base": "15.0.0",
         "eslint-plugin-import": "2.25.4",

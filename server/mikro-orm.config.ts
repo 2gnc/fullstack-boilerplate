@@ -1,12 +1,12 @@
 import path from 'path';
-import { IS_PROD } from '../src/constants';
-import { Example } from '../src/entities/Example';
-import { MikroORM, Options } from '@mikro-orm/core'
+import { Options } from '@mikro-orm/core';
+import { IS_PROD } from './src/constants';
+import { Example } from './src/entities/Example';
 
 export default {
     migrations: {
         path: path.join(__dirname, './migrations'),
-        pattern: /^[\w-]+\d+\.[tj]s$/
+        pattern: /^[\w-]+\d+\.[tj]s$/,
     },
     dbName: 'mtrader01',
     password: 'boolo4ka',

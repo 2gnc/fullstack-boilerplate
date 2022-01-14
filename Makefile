@@ -2,9 +2,9 @@ NODE_MODULES_BIN := node_modules/.bin
 
 .PHONY: server
 server:
-	@cd ./server && \
-	npm run watch && \
-	npm run start
+	cd server && \
+	node_modules/.bin/concurrently --names "TS,SRV" -c "green.bold,magenta.bold" \
+	"npm run watch" "npm run start"
 
 
 .PHONY: lint-server

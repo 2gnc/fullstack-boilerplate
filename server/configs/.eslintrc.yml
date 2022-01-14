@@ -13,6 +13,7 @@ plugins:
 rules:
   import/prefer-default-export: 0
   import/extensions: 0
+  indent: ['error', 4]
 settings:
   import/resolver:
     node:

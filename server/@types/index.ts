@@ -4,6 +4,6 @@ export interface Config {
     port: number;
 }
 
-export interface MyContext {
+export interface Context {
     em: EntityManager<IDatabaseDriver<Connection>>
 }

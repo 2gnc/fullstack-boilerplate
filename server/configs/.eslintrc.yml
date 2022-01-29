@@ -15,6 +15,7 @@ rules:
   import/extensions: 0
   indent: ['error', 4]
   class-methods-use-this: 0
+  max-classes-per-file: ["error", 2]
 settings:
   import/resolver:
     node:

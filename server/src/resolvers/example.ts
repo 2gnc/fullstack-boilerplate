@@ -5,32 +5,32 @@ import { Example } from '../entities/Example';
 import { Context } from '../../@types';
 
 @Resolver()
-export class PostResolver {
+export class ExampleResolver {
     // query all (no pagination)
     @Query(() => [Example])
     examples(
-        @Ctx() ctx: Context,
+        @Ctx() { em }: Context,
     ): Promise<Example[]> {
-        return ctx.em.find(Example, {});
+        return em.find(Example, {});
     }
 
     // query single by id
     @Query(() => Example, { nullable: true })
     example(
         @Arg('id') id: number,
-        @Ctx() ctx: Context,
+        @Ctx() { em }: Context,
     ): Promise<Example | null> {
-        return ctx.em.findOne(Example, { id });
+        return em.findOne(Example, { id });
     }
 
     // create new
     @Mutation(() => Example)
     async createExample(
         @Arg('title') title: string,
-        @Ctx() ctx: Context,
+        @Ctx() { em }: Context,
     ): Promise<Example> {
-        const example = ctx.em.create(Example, { title });
-        await ctx.em.persistAndFlush(example);
+        const example = em.create(Example, { title });
+        await em.persistAndFlush(example);
         return example;
     }
 
@@ -39,15 +39,15 @@ export class PostResolver {
     async updateExample(
         @Arg('id') id: number,
         @Arg('title', { nullable: true }) title: string, // makes title possible to be null
-        @Ctx() ctx: Context,
+        @Ctx() { em }: Context,
     ): Promise<Example | null> {
-        const target = await ctx.em.findOne(Example, { id });
+        const target = await em.findOne(Example, { id });
         if (!target) {
             return null;
         }
 
         target.title = title;
-        await ctx.em.persistAndFlush(target);
+        await em.persistAndFlush(target);
 
         return target;
     }
@@ -56,10 +56,10 @@ export class PostResolver {
     @Mutation(() => Boolean, { nullable: true })
     async deleteExample(
         @Arg('id') id: number,
-        @Ctx() ctx: Context,
+        @Ctx() { em }: Context,
     ): Promise<boolean> {
         // no try/catch because nativeDelete goes well if there if no such entity found
-        await ctx.em.nativeDelete(Example, { id });
+        await em.nativeDelete(Example, { id });
         return true;
     }
 }

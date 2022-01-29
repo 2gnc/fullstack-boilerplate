@@ -5,7 +5,8 @@ import { buildSchema } from 'type-graphql';
 import mikroOrmPgConfig from './mikro-orm.config';
 import { PORT } from './constants';
 import { HelloResolver } from './resolvers/hello';
-import { PostResolver } from './resolvers/post';
+import { ExampleResolver } from './resolvers/example';
+import { UserResolver } from './resolvers/user';
 
 function errorCallback(err: Error): void {
     console.error('Application start error ', err);
@@ -22,7 +23,7 @@ async function main() {
     const app = express();
     const appoloServer = new ApolloServer({
         schema: await buildSchema({
-            resolvers: [HelloResolver, PostResolver],
+            resolvers: [HelloResolver, ExampleResolver, UserResolver],
             validate: false,
         }),
         context: () => ({
@@ -37,15 +38,3 @@ async function main() {
 }
 
 main().catch(console.error);
-
-/** Create record example */
-// import { Example } from './entities/Example';
-// const post = orm.em.create(Example, {
-//   createdAt: new Date(),
-//   title: 'Example3',
-// });
-
-// await orm.em.persistAndFlush(post);
-
-/** Get records example */
-// const examples = await orm.em.find(Example, {});

@@ -1,7 +1,8 @@
 import path from 'path';
 import { Options } from '@mikro-orm/core';
-import { IS_PROD } from './src/constants';
-import { Example } from './src/entities/Example';
+import { IS_PROD } from './constants';
+import { Example } from './entities/Example';
+import { User } from './entities/User';
 
 export default {
     migrations: {
@@ -12,5 +13,5 @@ export default {
     password: 'boolo4ka',
     debug: !IS_PROD,
     type: 'postgresql',
-    entities: [Example],
+    entities: [Example, User],
 } as Options;

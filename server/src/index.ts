@@ -2,7 +2,7 @@ import { MikroORM } from '@mikro-orm/core';
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { buildSchema } from 'type-graphql';
-import mikroOrmPgConfig from '../mikro-orm.config';
+import mikroOrmPgConfig from './mikro-orm.config';
 import { PORT } from './constants';
 import { HelloResolver } from './resolvers/hello';
 import { PostResolver } from './resolvers/post';

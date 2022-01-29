@@ -9,6 +9,6 @@ Graphql Ui sandbox: `http://localhost:8080/graphql`
 
 ## Server
 ### Make a migration
-`cd server/db && npx mikro-orm migration:create -p migrations`
+`cd server && npm run create:migration -p migrations`
 ## TODO 
 

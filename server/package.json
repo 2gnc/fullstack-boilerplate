@@ -6,7 +6,8 @@
         "start": "node_modules/.bin/nodemon ./build/src/index.js",
         "watch": "node_modules/.bin/tsc --project configs/tsconfig.json -w",
         "lint": "node_modules/.bin/eslint -c configs/.eslintrc.yml --ext .ts . --ignore-path configs/.eslintignore --fix",
-        "pretty": "node_modules/.bin/prettier --config configs/.prettierrc.yml  --write --ignore-unknown src/**.*"
+        "pretty": "node_modules/.bin/prettier --config configs/.prettierrc.yml  --write --ignore-unknown src/**.*",
+        "create:migration": "node_modules/.bin/mikro-orm migration:create -p migrations"
     },
     "license": "MIT",
     "devDependencies": {
@@ -36,8 +37,8 @@
     "mikro-orm": {
         "useTsNode": true,
         "configPaths": [
-            "./src/db/mikro-orm.config.ts",
-            "./build/db/mikro-orm.config.js"
+            "./src/mikro-orm.config.ts",
+            "./build/mikro-orm.config.js"
         ]
     }
 }
